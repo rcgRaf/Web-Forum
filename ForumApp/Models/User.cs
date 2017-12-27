@@ -22,15 +22,6 @@ namespace ForumApp.Models
         public string Name { get; set; }
 
         [Required]
-        [StringLength(20)]
-        public string LastName { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string Username { get; set; }
-
-
-        [Required]
         [MaxLength(20)]
         public byte[] Password { get; set; }
 
@@ -39,6 +30,14 @@ namespace ForumApp.Models
         public string Email { get; set; }
 
         public bool Admin { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        public string LastName { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        public string Username { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }

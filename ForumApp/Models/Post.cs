@@ -21,6 +21,10 @@ namespace ForumApp.Models
 
         public DateTime? postedDate { get; set; }
 
+        public int? ThreadId { get; set; }
+
         public virtual User User { get; set; }
+
+        public virtual Thread Thread { get; set; }
     }
 }

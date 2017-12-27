@@ -154,18 +154,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Encryptor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712251817333_InitalCreate.cs" />
-    <Compile Include="Migrations\201712251817333_InitalCreate.Designer.cs">
-      <DependentUpon>201712251817333_InitalCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712251854171__Username.cs" />
-    <Compile Include="Migrations\201712251854171__Username.Designer.cs">
-      <DependentUpon>201712251854171__Username.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DTO\UserDTO.cs" />
     <Compile Include="Models\ForumContext.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Thread.cs" />
@@ -223,6 +217,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -237,16 +232,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712251817333_InitalCreate.resx">
-      <DependentUpon>201712251817333_InitalCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712251854171__Username.resx">
-      <DependentUpon>201712251854171__Username.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
