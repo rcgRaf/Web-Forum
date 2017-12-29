@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using customEncrypt;
-
+using System.Diagnostics;
+using System.Net.Mail;
 
 namespace ForumApp.Controllers
 {
@@ -17,41 +18,50 @@ namespace ForumApp.Controllers
 
         private static Logger logger = LogManager.GetLogger("dbloger");
 
-        public async Task<ActionResult> Index()
-        {
 
+        [HttpGet]
+        public ActionResult Login(bool error=false)
+        {
+            if(error)
+            {
+                ModelState.AddModelError("Login", "Wrong password or email");
+            }
 
             return View();
         }
 
-
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult >Login(string email, string pass)
+        public async Task<ActionResult> Login(string email, string pass)
         {
             using (var set = new ForumContext())
             {
                 var usr = await set.Users.FirstOrDefaultAsync(m => m.Email == email);
 
-
-                if ( await UserLogin(email, pass, usr))
+                if (await UserLogin(email, pass, usr))
                 {
-                    return RedirectToAction("Main", usr);
+                    return RedirectToAction("Index", FormMethod.Get);
                 }
                 else
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Login",new { error= true });
                 }
             }
         }
 
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+        [NoDirectAccess]
+        public async Task<ActionResult> Index()
+        {
+            using (var set = new ForumContext())
+            {
+                ViewData.Model = await set.Topics.ToListAsync();
+                return View();
+            }
         }
 
+        [HttpGet]
         public ActionResult Register()
         {
             return View();
@@ -64,13 +74,78 @@ namespace ForumApp.Controllers
 
             if (await NewUser(user))
             {
+
+                System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
+                        new System.Net.Mail.MailAddress("sender@mydomain.com", "Web Registration"),
+                        new System.Net.Mail.MailAddress(user.Email));
+                m.Subject = "Email confirmation";
+                m.Body = string.Format("Dear {0}<BR/>Thank you for your registration, please click on the below link to comlete your registration: <a href=\"{1}\" title=\"User Email Confirm\">{1}</a>",
+                    user.Username,
+                    Url.Action("ConfirmEmail", "Account", new { Token = user.Username, Email = user.Email },
+                    Request.Url.Scheme));
+
+
+
+                m.IsBodyHtml = true;
+                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.mydomain.com", 25);
+                smtp.Credentials = new System.Net.NetworkCredential("urugluxner@mail.ru", "Arahylyhopararaf5Rafulik97");
+                smtp.EnableSsl = true;
+                try
+                {
+                    await smtp.SendMailAsync(m);
+                }
+                catch (SmtpException e)
+                {
+                    throw new ArgumentException();
+                }
+
                 return RedirectToAction("Login", user);
             }
             else
             {
+
                 return View("Index");
             }
 
+        }
+
+
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ConfirmEmail(string Token, string Email)
+        {
+            using (var set = new ForumContext())
+            {
+                var user = await set.Users.FirstAsync(u => u.Username == Token);
+                if (user != null)
+                {
+                    if (user.Email == Email)
+                    {
+                        user.EmailConfirmed = true;
+                        await set.SaveChangesAsync();
+
+                        return RedirectToAction("Login");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Confirm", "Account", new { Email = user.Email });
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Confirm", "Account", new { Email = "" });
+                }
+            }
+
+        }
+
+
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Confirm(string Email)
+        {
+            ViewBag.Email = Email;
+            return View();
         }
 
         public ActionResult Details(int id)
@@ -142,7 +217,7 @@ namespace ForumApp.Controllers
                 var dbThread = set.Threads
                     .SingleOrDefault(t => t.Name == item.Name);
 
-                if (dbThread==null)
+                if (dbThread == null)
                 {
                     User user = (User)Session["User"];
 
@@ -150,7 +225,7 @@ namespace ForumApp.Controllers
 
                     Thread newItem = new Thread()
                     {
-                        User = author,  
+                        User = author,
                         Name = item.Name
                     };
 
@@ -216,15 +291,28 @@ namespace ForumApp.Controllers
         {
             using (var set = new ForumContext())
             {
-                var list = set.Users.Select(p => p.Email);
-                if (!ModelState.IsValid || list.Contains(user.Email))
+                var list = set.Users.Select(p => p.Email).Concat(set.Users.Select(p=>p.Username));
+                if (!ModelState.IsValid || list.Contains(user.Email) || list.Contains(user.Username))
                 {
                     if (list.Contains(user.Email))
                     {
-                        logger.Info("Failed attempt to register a registered user:" + user.Email);
-                        ModelState.AddModelError("Email", "Email already registered");
+                        logger.Info("Failed attempt to register a registered user:" + user.Email+user.Username);
+                        ModelState.AddModelError("Email", "Such email is already registered");
                     }
-                    logger.Info("Failed attempt to register a new user:" + user.Email);
+                    else if (list.Contains(user.Username))
+                    {
+                   
+                        logger.Info("Failed attempt to register a new user:" + user.Username + user.Email);
+                        ModelState.AddModelError("Email", "Such username is already registered");
+                    }
+                    else
+                    {
+                        logger.Info(ModelState
+                       .Values
+                       .FirstOrDefault(e => e.Errors.Count != 0)
+                       .Errors.FirstOrDefault()
+                       .ErrorMessage);
+                    }
                     return false;
                 }
                 else
@@ -236,7 +324,8 @@ namespace ForumApp.Controllers
                         LastName = user.LastName,
                         Email = user.Email,
                         Username = user.Username,
-                        Password = await CustomEncryptor.EncryptAsync(user.Password)
+                        Password = await CustomEncryptor.EncryptAsync(user.Password),
+                        City = "temp"
 
                     };
                     set.Users.Add(usr);
@@ -251,27 +340,31 @@ namespace ForumApp.Controllers
 
             if (usr != null)
             {
-                if (usr.Password == await CustomEncryptor.EncryptAsync(pass))
+
+                var bytepass = await CustomEncryptor.EncryptAsync(pass);
+                var test = System.Text.Encoding.UTF8.GetString(bytepass);
+                var usrpass = System.Text.Encoding.UTF8.GetString(usr.Password);
+                if (usrpass == test)
                 {
 
                     GlobalDiagnosticsContext.Set("Email", usr.Email);
 
-                    Session["login"] = usr.Name;
+                    Session["Username"] = usr.Username;
                     Session["User"] = usr;
-                    logger.Info("Successful login username:" + usr.Email);
+                    logger.Info("Successful login, username:" + usr.Email);
                     return true;
                 }
                 else
                 {
+
                     logger.Info("Failed attempt to login:" + email);
-                    ModelState.AddModelError("Password", "Wrong password or email");
+                   
                     return false;
                 }
             }
             else
             {
                 logger.Info("Failed attempt to login:" + email);
-                ModelState.AddModelError("Password", "Wrong password or email");
                 return false;
             }
         }

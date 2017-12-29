@@ -14,7 +14,6 @@ namespace ForumApp.Models
             Posts = new HashSet<Post>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
@@ -23,9 +22,20 @@ namespace ForumApp.Models
 
         public int AuthorId { get; set; }
 
+        public int Votes { get; set; }
+
+        public int TopicId { get; set; }
+
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime? LastPost { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
 
         public virtual User User { get; set; }
+
+        public virtual Topic Topic { get; set; }
     }
 }

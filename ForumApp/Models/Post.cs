@@ -19,9 +19,9 @@ namespace ForumApp.Models
 
         public int Votes { get; set; }
 
-        public DateTime? postedDate { get; set; }
+        public DateTime postedDate { get; set; }
 
-        public int? ThreadId { get; set; }
+        public int ThreadId { get; set; }
 
         public virtual User User { get; set; }
 

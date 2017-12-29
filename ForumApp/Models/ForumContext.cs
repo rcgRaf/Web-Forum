@@ -10,6 +10,7 @@ namespace ForumApp.Models
         public ForumContext()
             : base("name=ForumContext")
         {
+            
         }
 
         public virtual DbSet<Post> Posts { get; set; }
@@ -26,6 +27,16 @@ namespace ForumApp.Models
             modelBuilder.Entity<Thread>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Thread>()
+                .HasMany(e => e.Posts)
+                .WithRequired(e => e.Thread)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Topic>()
+                .HasMany(e => e.Threads)
+                .WithRequired(e => e.Topic)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Password)

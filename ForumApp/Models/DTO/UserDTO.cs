@@ -17,7 +17,6 @@ namespace ForumApp.Models
         public string LastName { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
         public string Username { get; set; }
 
 
@@ -25,7 +24,7 @@ namespace ForumApp.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-
+        [Required(ErrorMessage ="Confirm your password")]
         [Compare("Password", ErrorMessage = "Confirmation password doesn't match, Type again !")]
         [DataType(DataType.Password)]
         public string Confirmation { get; set; }
@@ -34,6 +33,9 @@ namespace ForumApp.Models
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        public bool Admin { get; set; }
+
 
     }
 }

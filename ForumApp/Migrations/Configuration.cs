@@ -9,6 +9,7 @@ namespace ForumApp.Migrations
     {
         public Configuration()
         {
+
             AutomaticMigrationsEnabled = false;
         }
 

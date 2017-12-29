@@ -12,7 +12,7 @@ namespace customEncrypt
         {
         var byteinput = System.Text.Encoding.UTF8.GetBytes(input);
         var sha=new System.Security.Cryptography.SHA1Managed().ComputeHash(byteinput);
-        return sha.ToString();
+        return System.Text.Encoding.UTF8.GetString(sha);
             
         }
         public static async Task<byte[]> EncryptAsync(string input) 

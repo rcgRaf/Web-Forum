@@ -1,0 +1,112 @@
+2017-12-28 01:39:37.8422|INFO|dbloger|Failed attempt to register a new user:rubomaf@gmail.com
+2017-12-28 01:45:13.0316|INFO|dbloger|Failed attempt to register a new user:rubomaf@gmail.com
+2017-12-28 02:01:09.8654|INFO|dbloger|Failed attempt to register a new user:rubomaf@gmail.com
+2017-12-28 02:02:06.1511|INFO|dbloger|Failed attempt to register a new user:rubomaf@gmail.com
+2017-12-28 02:23:23.4008|INFO|dbloger|Registered a new user:rubomaf@gmail.com
+2017-12-28 02:25:11.3723|INFO|dbloger|Failed attempt to register a registered user:rubomaf@gmail.com
+2017-12-28 02:25:34.7742|INFO|dbloger|Failed attempt to register a new user:rubomaf@gmail.com
+2017-12-28 04:14:21.0463|INFO|dbloger|Registered a new user:rubomaf@gmail.com
+2017-12-28 13:50:09.2314|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 16:24:51.0657|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 16:25:04.8449|INFO|dbloger|Registered a new user:rubomaf@gmail.com
+2017-12-28 16:45:39.8424|INFO|dbloger|Failed attempt to register a registered user:rubomaf@gmail.com
+2017-12-28 16:45:39.8424|INFO|dbloger|Failed attempt to register a new user:rubomaf@gmail.com
+2017-12-28 16:49:11.1962|INFO|dbloger|Registered a new user:rubomaf@mail.ru
+2017-12-28 18:16:55.7936|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 18:43:59.6784|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 18:44:20.8767|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 18:48:59.0081|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:07:39.2611|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:07:41.8793|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:07:42.7720|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:07:43.3826|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:07:56.5045|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:08:29.5701|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:08:30.1678|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:08:30.4325|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:08:30.7428|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:08:31.0068|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:08:31.5901|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:08:47.0320|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:10:01.0604|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:10:14.0378|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:12:01.3425|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:16:33.8090|INFO|dbloger|Registered a new user:rubomaf@gmail.com
+2017-12-28 19:17:02.4533|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:20:49.8639|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:30:12.9895|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:31:49.4449|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-28 19:37:08.9991|INFO|dbloger|Registered a new user:rubomaf@mail.ru
+2017-12-28 19:37:33.9357|INFO|dbloger|Successful login username:rubomaf@mail.ru
+2017-12-29 00:23:18.6857|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 00:24:33.1655|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 00:25:40.7478|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 00:25:55.0526|INFO|dbloger|Successful login username:rubomaf@mail.ru
+2017-12-29 12:25:51.8300|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 12:26:03.2743|INFO|dbloger|Successful login username:rubomaf@mail.ru
+2017-12-29 12:26:36.7545|INFO|dbloger|Successful login username:rubomaf@mail.ru
+2017-12-29 12:29:18.6144|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 12:29:27.0023|INFO|dbloger|Successful login username:rubomaf@mail.ru
+2017-12-29 14:30:14.3662|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:09.8059|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:11.1215|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:11.7201|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:12.2446|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:12.4105|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:12.8738|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:12.8913|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:13.6504|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:34.8347|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:35.8975|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:36.0664|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 14:31:36.3953|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:27:20.5266|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:27:21.4119|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:27:22.0667|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:27:22.5840|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:27:27.6114|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:27:41.3108|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:51.2927|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:53.3142|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:54.0542|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:54.2447|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:54.7075|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:55.1234|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:55.3771|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:55.7702|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:56.1292|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:56.3272|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:56.5363|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:56.7800|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:57.0798|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:57.2788|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:31:57.4257|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:32:15.4620|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:33:10.4586|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:33:23.6143|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:33:37.8020|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:33:47.0887|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:42:05.0442|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:42:19.4225|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:42:37.3015|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:45:51.0869|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:45:52.1467|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:45:52.9398|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:45:53.4652|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:45:59.4050|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:46:37.8862|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:47:33.2699|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:47:43.1805|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 15:48:47.6867|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 16:02:42.8029|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 16:02:46.3113|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 16:02:54.6595|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 16:45:58.5736|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 16:46:08.6188|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 16:46:26.2507|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 16:46:28.4425|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 16:46:35.0591|INFO|dbloger|Failed attempt to login:
+2017-12-29 16:46:39.9799|INFO|dbloger|Failed attempt to login:
+2017-12-29 16:46:57.1225|INFO|dbloger|Failed attempt to login:
+2017-12-29 16:47:06.6102|INFO|dbloger|Failed attempt to login:
+2017-12-29 16:51:01.5269|INFO|dbloger|User tried direct acces to url logged out:

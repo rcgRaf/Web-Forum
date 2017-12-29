@@ -39,6 +39,12 @@ namespace ForumApp.Models
         [StringLength(20)]
         public string Username { get; set; }
 
+        public bool EmailConfirmed { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        public string City { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
 

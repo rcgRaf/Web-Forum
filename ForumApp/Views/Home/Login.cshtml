@@ -1,0 +1,37 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Login</h3>
+
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+
+    @Html.AntiForgeryToken()
+
+
+
+
+    @Html.TextBox("email", null, new { id = "email", type = "text", placeholder = "Email" })
+
+    <br />
+
+    @Html.TextBox("pass", null, new { id = "pass", type = "password", placeholder = "Password" })
+
+    <br />
+    <br />
+
+    if (!ViewData.ModelState.IsValid)
+    {
+        <span class="alert-danger"> @Html.ValidationMessage("Login")</span>
+    }
+    <br />
+    <br />
+    <button class="btn btn-default" type="submit"> Login </button>
+}
+<br />
+@Html.ActionLink("Register", "Register", FormMethod.Get)
