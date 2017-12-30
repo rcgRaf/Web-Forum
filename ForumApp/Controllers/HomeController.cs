@@ -22,6 +22,8 @@ namespace ForumApp.Controllers
         [HttpGet]
         public ActionResult Login(bool error = false)
         {
+
+
             if (error)
             {
                 ModelState.AddModelError("Login", "Wrong password or email");
@@ -36,6 +38,7 @@ namespace ForumApp.Controllers
         {
             using (var set = new ForumContext())
             {
+
                 var usr = await set.Users.FirstOrDefaultAsync(m => m.Email == email);
 
                 if (await UserLogin(email, pass, usr))
@@ -58,6 +61,10 @@ namespace ForumApp.Controllers
             {
                 ViewData.Model = await set.Topics.Include(t => t.Threads).ToListAsync();
 
+                ViewData["AllPosts"] = await set.Posts.Include(p=> p.User).ToListAsync();
+
+
+
                 return View();
             }
         }
@@ -76,30 +83,6 @@ namespace ForumApp.Controllers
             if (await NewUser(user))
             {
 
-                System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
-                        new System.Net.Mail.MailAddress("sender@mydomain.com", "Web Registration"),
-                        new System.Net.Mail.MailAddress(user.Email));
-                m.Subject = "Email confirmation";
-                m.Body = string.Format("Dear {0}<BR/>Thank you for your registration, please click on the below link to comlete your registration: <a href=\"{1}\" title=\"User Email Confirm\">{1}</a>",
-                    user.Username,
-                    Url.Action("ConfirmEmail", "Account", new { Token = user.Username, Email = user.Email },
-                    Request.Url.Scheme));
-
-
-
-                m.IsBodyHtml = true;
-                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.mydomain.com", 25);
-                smtp.Credentials = new System.Net.NetworkCredential("urugluxner@mail.ru", "Arahylyhopararaf5Rafulik97");
-                smtp.EnableSsl = true;
-                try
-                {
-                    await smtp.SendMailAsync(m);
-                }
-                catch (SmtpException e)
-                {
-                    throw new ArgumentException();
-                }
-
                 return RedirectToAction("Login", user);
             }
             else
@@ -110,77 +93,104 @@ namespace ForumApp.Controllers
         }
 
 
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ConfirmEmail(string Token, string Email)
+
+        [HttpGet]
+        public ActionResult CreateThread(int topicId)
         {
-            using (var set = new ForumContext())
-            {
-                var user = await set.Users.FirstAsync(u => u.Username == Token);
-                if (user != null)
-                {
-                    if (user.Email == Email)
-                    {
-                        user.EmailConfirmed = true;
-                        await set.SaveChangesAsync();
 
-                        return RedirectToAction("Login");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Confirm", "Account", new { Email = user.Email });
-                    }
-                }
-                else
-                {
-                    return RedirectToAction("Confirm", "Account", new { Email = "" });
-                }
-            }
-
-        }
-
-
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Confirm(string Email)
-        {
-            ViewBag.Email = Email;
+            ViewData["topicId"] = topicId;
             return View();
+
         }
 
 
         [HttpPost]
-        public ActionResult CreateTopic(int id)
+        public async Task<ActionResult> CreateThread(Thread newThread)
         {
             using (var set = new ForumContext())
             {
 
-                var book = set.Posts.FirstOrDefault(b => b.Id == id);
-                return View(book);
+                newThread.AuthorId = ((User)Session["User"]).Id;
+
+
+                set.Threads.Add(newThread);
+                await set.SaveChangesAsync();
+
+                logger.Info($"New Thread {newThread.Name} by user {Session["Username"] as string} ");
+
+                return RedirectToAction("Index");
+            }
+        }
+
+
+        [NoDirectAccess]
+        public async Task<ActionResult> CloseOrOpenThread(bool close, int threadId)
+        {
+            using (var set = new ForumContext())
+            {
+                var thread = set.Threads.FirstOrDefault(t => t.Id == threadId);
+                thread.IsClosed = close;
+
+                await set.SaveChangesAsync();
+
+
+                logger.Info($"Thread {thread.Name} was {(close? "closed": "opened")} by user {Session["Username"] as string}");
+
+                return RedirectToAction("ThreadDetails", new { threadId });
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult CreateTopic()
+        {
+            return View();
+
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> CreateTopic(Topic newTopic)
+        {
+            using (var set = new ForumContext())
+            {
+
+
+
+                set.Topics.Add(newTopic);
+                await set.SaveChangesAsync();
+
+                logger.Info($"Topic {newTopic.Name} was created by user { Session["Username"] as string}");
+
+                return RedirectToAction("Index");
             }
         }
 
 
 
         [HttpPost]
-        public async Task<ActionResult> CreatePost(string username , string text, int threadId )
+        public async Task<ActionResult> CreatePost(string username, string text, int threadId)
         {
             using (var set = new ForumContext())
             {
 
-                var user = set.Users.FirstOrDefault(b => b.Username== username);
+                var user = set.Users.FirstOrDefault(b => b.Username == username);
 
                 var result = new Post()
                 {
                     Text = text,
-                    Thread = set.Threads.FirstOrDefault(t=> t.Id==threadId),
-                    User=user
+                    Thread = set.Threads.FirstOrDefault(t => t.Id == threadId),
+                    User = user
 
                 };
 
-                set.Posts.Add(result);
+                set.Threads.FirstOrDefault(t => t.Id == threadId).LastPost = DateTime.UtcNow;
+
+                set.Posts.Add(result); 
                 await set.SaveChangesAsync();
 
+
+                logger.Info($"A new post was created by user {Session["Username"] as string}");
                 return RedirectToAction("ThreadDetails", new { threadId });
             }
         }
@@ -188,10 +198,15 @@ namespace ForumApp.Controllers
         [NoDirectAccess]
         public async Task<ActionResult> TopicDetails(int topicId)
         {
+            using (var set = new ForumContext())
+            {
 
-            var thread = await GetThreadsByTopicAsync(topicId);
+                var thread = await GetThreadsByTopicAsync(topicId);
 
-            return View(thread);
+                ViewData["Posts"] = await set.Posts.Include(p => p.User).ToListAsync();
+
+                return View(thread);
+            }
 
         }
 
@@ -207,6 +222,31 @@ namespace ForumApp.Controllers
             return View(posts);
 
         }
+
+
+
+        [NoDirectAccess]
+        public async Task<ActionResult> DeletePost(int postId)
+        {
+            using (var set = new ForumContext())
+            {
+
+                var post = set.Posts.Include(p=> p.User).FirstOrDefault(p => p.Id == postId);
+
+                var threadId = post.ThreadId;
+
+                        
+                set.Posts.Remove(post);
+                
+                await set.SaveChangesAsync();
+
+                logger.Info($"Post byId:{postId} was deleted by user {Session["Username"] as string}");
+
+                return RedirectToAction("ThreadDetails", new { threadId });
+            }
+
+        }
+
 
 
         private async Task<List<Thread>> GetThreadsByTopicAsync(int topicId)
@@ -234,34 +274,14 @@ namespace ForumApp.Controllers
         {
             using (var set = new ForumContext())
             {
-                var thread= set.Threads.Include(t => t.User).FirstOrDefault(t => t.Id == threadId);
+                var thread = set.Threads.Include(t => t.User).FirstOrDefault(t => t.Id == threadId);
 
-               
+
 
                 return thread;
             }
         }
 
-        public async Task<ActionResult> Catalogue()
-        {
-            using (var set = new ForumContext())
-            {
-                var topics = await set.Topics.ToListAsync();
-                ViewBag.Topics = topics;
-
-                return View();
-            }
-
-        }
-
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Buy(int id)
-        //{
-        //    await BookPurchase(id);
-
-        //    return RedirectToAction("Catalogue");
-
-        //}
 
         public async Task<ActionResult> Logout()
         {
@@ -272,11 +292,7 @@ namespace ForumApp.Controllers
             return RedirectToAction("Login");
         }
 
-        public ActionResult NewBook()
-        {
-            return View();
-        }
-
+ 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> NewThread(Thread item)
@@ -294,7 +310,7 @@ namespace ForumApp.Controllers
 
 
 
-        #region Methods
+
 
         private async Task AddNewThread(Thread item)
         {
@@ -309,6 +325,8 @@ namespace ForumApp.Controllers
 
                     var author = await set.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
 
+
+
                     Thread newItem = new Thread()
                     {
                         User = author,
@@ -318,9 +336,56 @@ namespace ForumApp.Controllers
                     set.Threads.Add(newItem);
                     await set.SaveChangesAsync();
 
+                    logger.Info($"User { Session["Username"] as string} added a new thread \"{newItem.Name}\" ");
+
                 }
             }
         }
+
+
+        [NoDirectAccess]
+        public async Task<ActionResult> Vote(bool upvote, int postId)
+        {
+            using (var set = new ForumContext())
+            {
+                
+                    var user = (User)Session["User"];
+                    var dbuser = set.Users.FirstOrDefault(u=>u.Id==user.Id);
+
+
+                    var votedPost = set.Posts.FirstOrDefault(p => p.Id == postId);
+
+                    var votes = await set.SentVotes.ToListAsync();
+
+
+                if (!votes.Select(p=>p.postId).ToList().Contains(votedPost.Id))
+                {
+                    if (upvote)
+                    {
+                        votedPost.Votes++;
+                        logger.Info($"User { Session["Username"] as string} upvoted created {votedPost.User.Username}s post");
+                    }
+                    else
+                    {
+                        votedPost.Votes--;
+                        logger.Info($"User { Session["Username"] as string} downvoted created {votedPost.User.Username}s post");
+                    }
+                    set.SentVotes.Add(new SentVote() { userId = dbuser.Id, postId = votedPost.Id });
+
+
+                    await set.SaveChangesAsync();
+                }
+
+
+                    return RedirectToAction("ThreadDetails", new { threadId =votedPost.ThreadId });
+                }
+            
+        }
+
+
+
+
+        // not implemented
         private async Task<List<Thread>> SearchByThread(string searchText, string category1, string category2)
         {
             using (var set = new ForumContext())
@@ -330,7 +395,7 @@ namespace ForumApp.Controllers
                 {
                     switch (category1)
                     {
-                        case "Name":
+                        case "Thread name":
                             items = await set.Threads.Where(x => x.Name.StartsWith(searchText)).ToListAsync();
                             break;
                         case "Price":
@@ -351,6 +416,11 @@ namespace ForumApp.Controllers
                 return items;
             }
         }
+
+
+
+
+        #region Methods
 
         private async Task<bool> NewUser(UserDTO user)
         {
@@ -390,7 +460,7 @@ namespace ForumApp.Controllers
                         Email = user.Email,
                         Username = user.Username,
                         Password = await CustomEncryptor.EncryptAsync(user.Password),
-                        City = "temp"
+                        City = user.City
 
                     };
                     set.Users.Add(usr);

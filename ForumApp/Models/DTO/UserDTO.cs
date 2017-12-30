@@ -20,6 +20,8 @@ namespace ForumApp.Models
         [Required]
         public string Username { get; set; }
 
+        [Required]
+        public string City { set; get; }
 
         [Required]
         [DataType(DataType.Password)]

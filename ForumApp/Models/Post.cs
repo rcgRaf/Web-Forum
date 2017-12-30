@@ -8,10 +8,8 @@ namespace ForumApp.Models
 
     public partial class Post
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        
         public int AuthorId { get; set; }
 
         [Required]
@@ -20,9 +18,8 @@ namespace ForumApp.Models
 
         public int Votes { get; set; }
 
-        public DateTime postedDate { get; set; } = DateTime.UtcNow;
+        public DateTime? postedDate { get; set; }
 
-        
         public int ThreadId { get; set; }
 
         public virtual User User { get; set; }

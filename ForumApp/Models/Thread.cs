@@ -17,7 +17,7 @@ namespace ForumApp.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(50)]
         public string Name { get; set; }
 
         public int AuthorId { get; set; }
@@ -26,10 +26,11 @@ namespace ForumApp.Models
 
         public int TopicId { get; set; }
 
-
-        public DateTime CreatedDate { get; set; }
-
         public DateTime? LastPost { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
+
+        public bool IsClosed { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }

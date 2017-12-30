@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "Index";
     var sessionUser = (ForumApp.Models.User)Session["User"];
+
+    var allPosts = (List<ForumApp.Models.Post>)ViewData["AllPosts"];
+
 }
 
 <h2>Topics</h2>
@@ -20,38 +23,62 @@
     <tr>
         @foreach (var item in Model)
         {
+            var threadIdList = item.Threads.Select(t => t.Id).ToList();
+            var threadPosts = allPosts.Where(p => threadIdList.Contains(p.ThreadId));
+            var latestPost = threadPosts?.Max(p => p.postedDate);
+
+
+
+
 
             <th>
-                @Html.DisplayFor(modelItem => item.Name)
+                @if (item.Threads.FirstOrDefault() != null)
+                {
+                    @Html.ActionLink(item.Name, "TopicDetails", new { topicId = item.Threads.FirstOrDefault().TopicId });
+                }
+                else
+                { @Html.DisplayFor(modelitem => item.Name)
+                <div>No threads yet</div>
+            }
+                <br />
+                <br />
+                @if (threadPosts.Count() > 0)
+                {
+                    @Html.Raw("Last post by:")
+
+                    if (latestPost != null)
+                    {
+                        var user = threadPosts.FirstOrDefault(p => p.postedDate == latestPost).User.Username;
+                        @Html.Raw(user)
+                    }
+
+                    <br />
+                    <br />
+
+                    @Html.Raw("Last post on :" + latestPost)
+                    <br />
+                    <br />
+
+                    @Html.Raw(" Replies :" + threadPosts.Count())
+                    <br />
+
+                }
+
             </th>
-
-
-
         }
         <th></th>
     </tr>
 
-
-
     <tr>
-
-        @foreach (var thr in Model.Select(m => m.Threads))
+        @foreach (var item in Model)
         {
+
+
             <td>
-                @if (thr.FirstOrDefault() != null)
-                {
-                    @Html.ActionLink("Details", "TopicDetails", new { topicId = thr.FirstOrDefault().TopicId } );
-                }
-
-                else
-                {
-                    <div>No threads yet</div>
-                }
-
+                @Html.ActionLink("New Thread", "CreateThread", new { topicId = item.Id })
             </td>
 
+
         }
-
     </tr>
-
 </table>

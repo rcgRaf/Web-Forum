@@ -11,13 +11,8 @@ namespace ForumApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            using (var set =new ForumContext())
-
             Posts = new HashSet<Post>();
             Threads = new HashSet<Thread>();
-
-            
-
         }
 
         public int Id { get; set; }
@@ -44,13 +39,11 @@ namespace ForumApp.Models
         [StringLength(20)]
         public string Username { get; set; }
 
-        public bool EmailConfirmed { get; set; }
-
         [Required]
         [StringLength(20)]
         public string City { get; set; }
 
-        public DateTime RegisteredDate { get; set; } = DateTime.UtcNow;
+        public DateTime? RegisteredDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
@@ -59,6 +52,5 @@ namespace ForumApp.Models
         public virtual ICollection<Thread> Threads { get; set; }
 
         public int TotalPosts => Posts.Count;
-
     }
 }

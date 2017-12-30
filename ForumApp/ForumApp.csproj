@@ -161,39 +161,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712290843290_InitialCreate.cs" />
-    <Compile Include="Migrations\201712290843290_InitialCreate.Designer.cs">
-      <DependentUpon>201712290843290_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201712301650082_initialcreate.cs" />
+    <Compile Include="Migrations\201712301650082_initialcreate.Designer.cs">
+      <DependentUpon>201712301650082_initialcreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712292220419_userRegistrationDate.cs" />
-    <Compile Include="Migrations\201712292220419_userRegistrationDate.Designer.cs">
-      <DependentUpon>201712292220419_userRegistrationDate.cs</DependentUpon>
+    <Compile Include="Migrations\201712301801148_closedTopics.cs" />
+    <Compile Include="Migrations\201712301801148_closedTopics.Designer.cs">
+      <DependentUpon>201712301801148_closedTopics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712292236019_userPostCount.cs" />
-    <Compile Include="Migrations\201712292236019_userPostCount.Designer.cs">
-      <DependentUpon>201712292236019_userPostCount.cs</DependentUpon>
+    <Compile Include="Migrations\201712301903414_change.cs" />
+    <Compile Include="Migrations\201712301903414_change.Designer.cs">
+      <DependentUpon>201712301903414_change.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712292357330_TotalPosts.cs" />
-    <Compile Include="Migrations\201712292357330_TotalPosts.Designer.cs">
-      <DependentUpon>201712292357330_TotalPosts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712300023435_insertFix.cs" />
-    <Compile Include="Migrations\201712300023435_insertFix.Designer.cs">
-      <DependentUpon>201712300023435_insertFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712300029234_fixes.cs" />
-    <Compile Include="Migrations\201712300029234_fixes.Designer.cs">
-      <DependentUpon>201712300029234_fixes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712300034000_PostPropFixes.cs" />
-    <Compile Include="Migrations\201712300034000_PostPropFixes.Designer.cs">
-      <DependentUpon>201712300034000_PostPropFixes.cs</DependentUpon>
+    <Compile Include="Migrations\201712301904566_postscountonuser.cs" />
+    <Compile Include="Migrations\201712301904566_postscountonuser.Designer.cs">
+      <DependentUpon>201712301904566_postscountonuser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\DTO\ThreadDTO.cs" />
     <Compile Include="Models\DTO\UserDTO.cs" />
     <Compile Include="Models\ForumContext.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\SentVote.cs" />
     <Compile Include="Models\Thread.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\User.cs" />
@@ -246,15 +234,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Confirm.cshtml" />
     <Content Include="Views\Home\CreateTopic.cshtml" />
     <Content Include="Views\Home\TopicDetails.cshtml" />
     <Content Include="Views\Home\ThreadDetails.cshtml" />
+    <Content Include="Views\Home\CreateThread.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -275,26 +261,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712290843290_InitialCreate.resx">
-      <DependentUpon>201712290843290_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712301650082_initialcreate.resx">
+      <DependentUpon>201712301650082_initialcreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712292220419_userRegistrationDate.resx">
-      <DependentUpon>201712292220419_userRegistrationDate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712301801148_closedTopics.resx">
+      <DependentUpon>201712301801148_closedTopics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712292236019_userPostCount.resx">
-      <DependentUpon>201712292236019_userPostCount.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712301903414_change.resx">
+      <DependentUpon>201712301903414_change.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712292357330_TotalPosts.resx">
-      <DependentUpon>201712292357330_TotalPosts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712300023435_insertFix.resx">
-      <DependentUpon>201712300023435_insertFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712300029234_fixes.resx">
-      <DependentUpon>201712300029234_fixes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712300034000_PostPropFixes.resx">
-      <DependentUpon>201712300034000_PostPropFixes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712301904566_postscountonuser.resx">
+      <DependentUpon>201712301904566_postscountonuser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,13 +7,13 @@ namespace ForumApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class insertFix : IMigrationMetadata
+    public sealed partial class change : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(insertFix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(change));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712300023435_insertFix"; }
+            get { return "201712301903414_change"; }
         }
         
         string IMigrationMetadata.Source

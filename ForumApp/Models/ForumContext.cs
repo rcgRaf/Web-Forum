@@ -10,10 +10,10 @@ namespace ForumApp.Models
         public ForumContext()
             : base("name=ForumContext")
         {
-            
         }
 
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<SentVote> SentVotes { get; set; }
         public virtual DbSet<Thread> Threads { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<User> Users { get; set; }
