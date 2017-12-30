@@ -7,13 +7,13 @@ namespace ForumApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ThreadCreatedDate : IMigrationMetadata
+    public sealed partial class fixes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ThreadCreatedDate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fixes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712290912154_Thread.CreatedDate"; }
+            get { return "201712300029234_fixes"; }
         }
         
         string IMigrationMetadata.Source

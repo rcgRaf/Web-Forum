@@ -7,13 +7,13 @@ namespace ForumApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class LastPostFix : IMigrationMetadata
+    public sealed partial class TotalPosts : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LastPostFix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(TotalPosts));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712290845007_LastPostFix"; }
+            get { return "201712292357330_TotalPosts"; }
         }
         
         string IMigrationMetadata.Source

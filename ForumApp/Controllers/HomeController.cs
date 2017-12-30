@@ -20,9 +20,9 @@ namespace ForumApp.Controllers
 
 
         [HttpGet]
-        public ActionResult Login(bool error=false)
+        public ActionResult Login(bool error = false)
         {
-            if(error)
+            if (error)
             {
                 ModelState.AddModelError("Login", "Wrong password or email");
             }
@@ -44,7 +44,7 @@ namespace ForumApp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Login",new { error= true });
+                    return RedirectToAction("Login", new { error = true });
                 }
             }
         }
@@ -56,7 +56,8 @@ namespace ForumApp.Controllers
         {
             using (var set = new ForumContext())
             {
-                ViewData.Model = await set.Topics.ToListAsync();
+                ViewData.Model = await set.Topics.Include(t => t.Threads).ToListAsync();
+
                 return View();
             }
         }
@@ -103,8 +104,7 @@ namespace ForumApp.Controllers
             }
             else
             {
-
-                return View("Index");
+                return View("Login");
             }
 
         }
@@ -148,12 +148,97 @@ namespace ForumApp.Controllers
             return View();
         }
 
-        public ActionResult Details(int id)
+
+        [HttpPost]
+        public ActionResult CreateTopic(int id)
         {
             using (var set = new ForumContext())
             {
+
                 var book = set.Posts.FirstOrDefault(b => b.Id == id);
                 return View(book);
+            }
+        }
+
+
+
+        [HttpPost]
+        public async Task<ActionResult> CreatePost(string username , string text, int threadId )
+        {
+            using (var set = new ForumContext())
+            {
+
+                var user = set.Users.FirstOrDefault(b => b.Username== username);
+
+                var result = new Post()
+                {
+                    Text = text,
+                    Thread = set.Threads.FirstOrDefault(t=> t.Id==threadId),
+                    User=user
+
+                };
+
+                set.Posts.Add(result);
+                await set.SaveChangesAsync();
+
+                return RedirectToAction("ThreadDetails", new { threadId });
+            }
+        }
+
+        [NoDirectAccess]
+        public async Task<ActionResult> TopicDetails(int topicId)
+        {
+
+            var thread = await GetThreadsByTopicAsync(topicId);
+
+            return View(thread);
+
+        }
+
+
+        [NoDirectAccess]
+        public async Task<ActionResult> ThreadDetails(int threadId)
+        {
+
+            var postThread = await GetThreadAsync(threadId);
+            var posts = await GetPostsByTopicAsync(threadId);
+
+            ViewData["Thread"] = postThread;
+            return View(posts);
+
+        }
+
+
+        private async Task<List<Thread>> GetThreadsByTopicAsync(int topicId)
+        {
+            using (var set = new ForumContext())
+            {
+
+                var result = await set.Threads.Include(t => t.Posts).Include(t => t.User).Where(t => t.TopicId == topicId).ToListAsync();
+                return result;
+            }
+        }
+
+        private async Task<List<Post>> GetPostsByTopicAsync(int threadId)
+        {
+            using (var set = new ForumContext())
+            {
+                set.Configuration.LazyLoadingEnabled = false;
+                var result = await set.Posts.Include(t => t.User).Where(t => t.ThreadId == threadId).ToListAsync();
+                return result;
+            }
+        }
+
+
+        private async Task<Thread> GetThreadAsync(int threadId)
+        {
+            using (var set = new ForumContext())
+            {
+                var thread= set.Threads.Include(t => t.User).FirstOrDefault(t => t.Id == threadId);
+
+               
+
+                return thread;
             }
         }
 
@@ -183,7 +268,8 @@ namespace ForumApp.Controllers
             var user = (User)Session["User"];
             logger.Info("User logged out:" + user.Name);
             Session.Abandon();
-            return RedirectToAction("Index");
+
+            return RedirectToAction("Login");
         }
 
         public ActionResult NewBook()
@@ -265,45 +351,24 @@ namespace ForumApp.Controllers
                 return items;
             }
         }
-        //private async Task BookPurchase(int id)
-        //{
-        //    User user = (User)Session["User"];
-        //    Owned_books newbook = new Owned_books { bookid = id, userid = user.Id };
-        //    if (user.account_ - db.Books.FirstOrDefault(b => b.Id == id).Price >= 0)
-        //    {
-        //        user.account_ -= db.Books.FirstOrDefault(b => b.Id == id).Price;
-        //        db.Owned_books.Add(newbook);
-        //        db.SaveChanges();
-        //        var list = (List<Book>)Session["Books"];
-        //        list.Add(db.Books.FirstOrDefault(b => b.Id == id));
-        //        Session["Books"] = list;
-        //        Session["User"] = user;
-        //        logger.Info("User:" + user.Email + " bought the book titled:" + db.Books.FirstOrDefault(b => b.Id == id).Name);
-        //    }
-        //    else
-        //    {
-        //        logger.Info("Failed attempt to buy a book with insufficient funds:" + user.Email);
-        //        TempData["msg"] = "<script>alert('Insufficient funds');</script>";
 
-        //    }
-        //}
         private async Task<bool> NewUser(UserDTO user)
         {
             using (var set = new ForumContext())
             {
-                var list = set.Users.Select(p => p.Email).Concat(set.Users.Select(p=>p.Username));
+                var list = set.Users.Select(p => p.Email).Concat(set.Users.Select(p => p.Username));
                 if (!ModelState.IsValid || list.Contains(user.Email) || list.Contains(user.Username))
                 {
                     if (list.Contains(user.Email))
                     {
-                        logger.Info("Failed attempt to register a registered user:" + user.Email+user.Username);
+                        logger.Info("Failed attempt to register a registered user:" + user.Email + user.Username);
                         ModelState.AddModelError("Email", "Such email is already registered");
                     }
                     else if (list.Contains(user.Username))
                     {
-                   
+
                         logger.Info("Failed attempt to register a new user:" + user.Username + user.Email);
-                        ModelState.AddModelError("Email", "Such username is already registered");
+                        ModelState.AddModelError("Username", "Such username is already registered");
                     }
                     else
                     {
@@ -358,7 +423,7 @@ namespace ForumApp.Controllers
                 {
 
                     logger.Info("Failed attempt to login:" + email);
-                   
+
                     return false;
                 }
             }

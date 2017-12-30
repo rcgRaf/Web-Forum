@@ -2,45 +2,56 @@
 
 @{
     ViewBag.Title = "Index";
+    var sessionUser = (ForumApp.Models.User)Session["User"];
 }
 
-<h2>Main</h2>
+<h2>Topics</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
+@if (sessionUser.Admin)
+{
+    <p>
+        @Html.ActionLink("Create New", "CreateTopic")
+    </p>
+}
 
 @Html.AntiForgeryToken()
 
 <table class="table">
+    <tr>
+        @foreach (var item in Model)
+        {
 
-    @foreach (var item in Model)
-    {
-        <tr>
             <th>
                 @Html.DisplayFor(modelItem => item.Name)
             </th>
-        </tr>
 
-        <tr>
 
-            @foreach (var thr in item.Threads)
-            {
+
+        }
+        <th></th>
+    </tr>
+
+
+
+    <tr>
+
+        @foreach (var thr in Model.Select(m => m.Threads))
+        {
             <td>
-                @Html.DisplayFor(modelItem => thr.Name)
+                @if (thr.FirstOrDefault() != null)
+                {
+                    @Html.ActionLink("Details", "TopicDetails", new { topicId = thr.FirstOrDefault().TopicId } );
+                }
+
+                else
+                {
+                    <div>No threads yet</div>
+                }
+
             </td>
 
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.Id })
-            </td>
-            }
+        }
 
-        </tr>
-    }
-
-
-
-
+    </tr>
 
 </table>

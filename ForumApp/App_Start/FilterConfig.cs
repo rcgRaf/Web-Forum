@@ -27,7 +27,9 @@ namespace ForumApp
                 
                 var user = (User)filterContext.HttpContext.Session["Username"];
 
-                logger.Info("User tried direct acces to url logged out:" + user?.Username ?? "Anonymus" );
+                var logedOutUser = user?.Username ?? "Anonymus";
+
+                logger.Info("User tried direct acces to url, logged out user:" + logedOutUser);
                 filterContext.HttpContext.Session.Abandon();
 
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new

@@ -66,17 +66,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.Label("Account type", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Admin, new SelectList(new[] {
-                                                                     new { Value  = true, Text="Admin" },
-                                                                     new { Value = false   , Text="User" },
-       },  "Value", "Text", Model))
-            
-            @Html.ValidationMessageFor(model => model.Admin, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

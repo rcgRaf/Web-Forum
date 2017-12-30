@@ -110,3 +110,108 @@
 2017-12-29 16:46:57.1225|INFO|dbloger|Failed attempt to login:
 2017-12-29 16:47:06.6102|INFO|dbloger|Failed attempt to login:
 2017-12-29 16:51:01.5269|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 17:14:53.7464|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 17:15:00.4123|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 17:40:40.5245|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:01:08.6077|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 18:01:13.9831|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:02:15.7894|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:02:47.6531|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 18:02:52.0528|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:04:30.9449|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2017-12-29 18:04:38.9154|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:13:52.6527|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 18:14:01.9439|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:15:40.7553|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 18:15:48.1220|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:31:52.8219|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:41:12.6421|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:42:13.9095|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:45:49.3004|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:46:47.2926|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:48:20.4263|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 18:48:28.0091|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:49:46.1111|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 18:49:52.5424|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 18:57:35.2271|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 18:57:41.8933|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 20:16:39.8428|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 20:21:21.6584|INFO|dbloger|Failed attempt to login:
+2017-12-29 20:24:31.5223|INFO|dbloger|Registered a new user:urugluxner@gmail.com
+2017-12-29 20:24:50.7528|INFO|dbloger|Failed attempt to register a registered user:urugluxner@gmail.comrobb
+2017-12-29 20:30:47.0751|INFO|dbloger|Successful login, username:urugluxner@gmail.com
+2017-12-29 20:30:50.5431|INFO|dbloger|Successful login, username:urugluxner@gmail.com
+2017-12-29 20:32:38.8917|INFO|dbloger|Successful login, username:urugluxner@gmail.com
+2017-12-29 20:35:24.5664|INFO|dbloger|Registered a new user:gagamkrt@gmail.com
+2017-12-29 20:35:35.9942|INFO|dbloger|Failed attempt to register a registered user:gagamkrt@gmail.comsss
+2017-12-29 20:35:40.6076|INFO|dbloger|Successful login, username:gagamkrt@gmail.com
+2017-12-29 20:36:46.4807|INFO|dbloger|Registered a new user:asd@mail.ru
+2017-12-29 20:37:11.9057|INFO|dbloger|Failed attempt to register a registered user:asd@mail.ruqw
+2017-12-29 20:37:13.9141|INFO|dbloger|Successful login, username:asd@mail.ru
+2017-12-29 20:42:57.5757|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 20:43:05.0876|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 20:43:49.8493|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 20:47:33.2598|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 20:48:16.4208|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 20:48:22.9837|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 20:50:09.6029|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 20:50:15.8980|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 20:51:10.3134|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 20:53:33.6237|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 20:53:40.0235|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 21:01:04.8756|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 21:16:27.8059|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 21:16:36.3298|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 21:25:47.3978|INFO|dbloger|Failed attempt to login:rubomaf@mail.ru
+2017-12-29 21:25:53.3694|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 21:31:30.2210|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 21:54:53.7008|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 21:59:24.1688|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 21:59:30.9373|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:00:25.4338|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 22:00:32.6260|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:05:28.1228|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 22:05:39.6505|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:08:21.1606|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:18:28.6358|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:19:00.1095|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 22:19:06.6667|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:21:46.9964|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:22:21.4002|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 22:22:27.7076|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:53:45.5486|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 22:53:52.1878|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 22:59:27.4130|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 23:27:28.1129|INFO|dbloger|User tried direct acces to url logged out:
+2017-12-29 23:27:44.0674|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 23:52:46.2191|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 23:52:47.4875|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 23:53:23.3341|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 23:54:10.5917|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-29 23:54:48.9386|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 00:00:28.6098|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2017-12-30 00:05:05.6138|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 00:05:48.6358|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 00:07:28.2474|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2017-12-30 00:07:38.3293|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 00:33:49.9436|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 01:05:18.9734|INFO|dbloger|Failed attempt to login:
+2017-12-30 01:07:51.0188|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 01:11:40.7755|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 01:14:35.2208|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 02:24:08.6341|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 02:45:15.3635|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2017-12-30 02:54:00.8987|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 03:31:22.8282|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2017-12-30 03:31:51.3521|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 03:58:31.6331|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:02:13.6110|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2017-12-30 04:02:21.1436|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:07:23.5535|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:14:20.8612|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2017-12-30 04:14:27.5055|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:18:04.7293|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:19:33.4081|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:24:11.7569|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:31:21.7561|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 04:34:42.6550|INFO|dbloger|Successful login, username:rubomaf@mail.ru

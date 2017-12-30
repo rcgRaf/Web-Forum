@@ -1,0 +1,143 @@
+﻿@model IEnumerable<ForumApp.Models.Post>
+
+@{
+    ViewBag.Title = "ThreadDetails";
+    var thread = (ForumApp.Models.Thread)ViewData["Thread"];
+
+}
+
+<h2>Thread</h2>
+
+
+
+
+
+
+
+
+<div class="row">
+
+    <dl class="dl-horizontal col-md-4 pull-left">
+
+        <dt class="pull-left">
+            Posted by:
+        </dt>
+
+        <dd>
+            @Html.ActionLink(thread.User.Username, "UserDetails", new { userId = thread.User.Id })
+        </dd>
+
+        <dt>
+            Votes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => thread.Votes)
+        </dd>
+
+        <dt>
+            Created Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(item => thread.CreatedDate)
+        </dd>
+
+        <dt>
+            Posts:
+        </dt>
+
+        @if (Model.Count() != 0)
+        {
+            <dd>
+                @Model.Count()
+            </dd>
+        }
+        else
+        {
+            <dd>
+                0
+            </dd>
+        }
+
+    </dl>
+
+    <div class="col-md-8 ">
+        @Html.DisplayFor(item => thread.Name)
+    </div>
+
+</div>
+<br />
+
+
+<h3> Posts </h3>
+<hr />
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <dl class="dl-horizontal col-md-4 pull-left">
+
+            <dt class="pull-left">
+                Posted by:
+            </dt>
+
+            <dd>
+                @Html.ActionLink(thread.User.Username, "UserDetails", new { userId = item.User.Id })
+            </dd>
+
+            <dt>
+                Registered date
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(p => item.User.RegisteredDate)
+            </dd>
+            <dt>
+                Votes
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(p => item.Votes)
+            </dd>
+
+            <dt>
+                Posted Date
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(p => item.postedDate)
+            </dd>
+
+            <dt>
+                Posts by User:
+            </dt>
+
+
+            <dd>
+                @item.User.TotalPosts
+            </dd>
+
+
+        </dl>
+
+        <span class="col-md-6 ">
+            @Html.DisplayFor(p => item.Text)
+        </span>
+        <span class="col-md-2">
+            RE:@Html.DisplayFor(p => thread.Name)
+        </span>
+    </div>
+}
+
+@using (@Html.BeginForm("CreatePost", "Home"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.TextArea("text", new { @class = "form-control" })
+    @Html.Hidden("username", Session["Username"] as string)
+    @Html.Hidden("threadId",  (int)thread.Id)
+
+    <button type="submit"> Post </button>
+
+}

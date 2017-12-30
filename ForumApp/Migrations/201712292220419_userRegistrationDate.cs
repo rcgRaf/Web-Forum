@@ -3,16 +3,16 @@ namespace ForumApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ThreadCreatedDate : DbMigration
+    public partial class userRegistrationDate : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Threads", "CreatedDate", c => c.DateTime(nullable: false, defaultValue: DateTime.UtcNow));
+            AddColumn("dbo.Users", "RegisteredDate", c => c.DateTime(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Threads", "CreatedDate");
+            DropColumn("dbo.Users", "RegisteredDate");
         }
     }
 }

@@ -1,0 +1,72 @@
+﻿@model List<ForumApp.Models.Thread>
+
+@{
+    ViewBag.Title = "TopicDetails";
+}
+
+
+
+<div>
+    <h4>Threads</h4>
+    <hr />
+
+    
+        @foreach (var thr in Model)
+        {
+            <div class="row">
+                <dl class="dl-horizontal col-md-4 pull-left">
+
+                    <dt class="pull-left">
+                        Posted by:
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(item => thr.User.Username)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(item => thr.Votes)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(item => thr.Votes)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(item => thr.CreatedDate)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(item => thr.CreatedDate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(item => thr.LastPost)
+                    </dt>
+                    @if (thr.LastPost != null)
+                    {
+                        <dd>
+                            @Html.DisplayFor(item => thr.LastPost)
+                        </dd>
+                    }
+                    else
+                    {
+                        <dd>No posts</dd>
+                    }
+
+                </dl>
+                <div class="col-md-6 ">
+                    @Html.DisplayFor(item => thr.Name)
+                </div>
+
+                <p class="col-md-2">
+                    @Html.ActionLink("View Posts","ThreadDetails", new {threadId= thr.Id })
+                </p>
+            </div>
+        }
+  
+
+
+
+
+</div>
