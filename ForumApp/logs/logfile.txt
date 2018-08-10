@@ -319,3 +319,13 @@
 2017-12-30 23:11:47.7265|INFO|dbloger|Successful login, username:tes@mail.ru
 2017-12-30 23:12:04.1642|INFO|dbloger|New Thread Hi im new by user tuser 
 2017-12-30 23:12:14.1356|INFO|dbloger|A new post was created by user tuser
+2017-12-30 23:50:44.6912|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 23:52:31.0101|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-30 23:56:29.7115|INFO|dbloger|A new post was created by user asdasd
+2017-12-31 00:00:58.8059|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2017-12-31 00:01:05.5965|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-31 00:03:35.0815|INFO|dbloger|A new post was created by user asdasd
+2017-12-31 00:04:35.1018|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2017-12-31 00:04:45.4359|INFO|dbloger|A new post was created by user asdasd
+2017-12-31 00:05:16.7800|INFO|dbloger|A new post was created by user asdasd
+2017-12-31 00:08:58.8119|INFO|dbloger|Successful login, username:rubomaf@mail.ru
