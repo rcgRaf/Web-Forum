@@ -17,6 +17,6 @@ Currently no email confirmation system
 
 Project includes NLog extension for logging 
 
-Logs in root Logs folder and c:/temp folder
+Logs in "project root"\Logs folder and c:/temp folder
 
 Found bug with null CreatedDate property for `Posts`
