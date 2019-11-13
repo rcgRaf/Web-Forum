@@ -329,3 +329,15 @@
 2017-12-31 00:04:45.4359|INFO|dbloger|A new post was created by user asdasd
 2017-12-31 00:05:16.7800|INFO|dbloger|A new post was created by user asdasd
 2017-12-31 00:08:58.8119|INFO|dbloger|Successful login, username:rubomaf@mail.ru
+2019-11-13 19:17:13.0469|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2019-11-13 19:19:46.2804|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 19:19:53.1465|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 19:21:14.5444|INFO|dbloger|Thread Anyone played the new Cod? was closed by user superadmin
+2019-11-13 19:21:17.3307|INFO|dbloger|Thread Anyone played the new Cod? was opened by user superadmin
+2019-11-13 19:21:18.0991|INFO|dbloger|Thread Anyone played the new Cod? was closed by user superadmin
+2019-11-13 19:21:19.1829|INFO|dbloger|Thread Anyone played the new Cod? was opened by user superadmin
+2019-11-13 19:21:19.7813|INFO|dbloger|Thread Anyone played the new Cod? was closed by user superadmin
+2019-11-13 19:21:20.2121|INFO|dbloger|Thread Anyone played the new Cod? was opened by user superadmin
+2019-11-13 19:21:21.5176|INFO|dbloger|Thread Anyone played the new Cod? was closed by user superadmin
+2019-11-13 19:21:38.6640|INFO|dbloger|Thread Anyone played the new Cod? was closed by user superadmin
+2019-11-13 19:21:41.7544|INFO|dbloger|Thread Anyone played the new Cod? was opened by user superadmin

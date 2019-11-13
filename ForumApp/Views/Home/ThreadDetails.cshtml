@@ -16,9 +16,6 @@
 
 
 
-
-
-
 <div class="row">
 
     <dl class="dl-horizontal col-md-4 pull-left">
@@ -72,11 +69,11 @@
     <div class="col-md-2">
         @if (!thread.IsClosed)
         {
-            @Html.ActionLink("Close", "CloseOrOpenThread", new { close = true, threadId=thread.Id })
+            @Html.ActionLink("Close Thread", "CloseOrOpenThread", new { close = true, threadId=thread.Id })
         }
         else
         {
-            @Html.ActionLink("Open", "CloseOrOpenThread", new { close = false, threadId= thread.Id })
+            @Html.ActionLink("Open Thread", "CloseOrOpenThread", new { close = false, threadId= thread.Id })
         }
     </div>
 
@@ -146,7 +143,7 @@
             RE:@Html.DisplayFor(p => thread.Name)
 
             <br />
-            @if (item.User.Username == sessionUser.Username || sessionUser.Admin)
+            @if (item.User.Username == sessionUser.Username || sessionUser.IsAdmin)
             {
                 <span>
                     @Html.ActionLink("Delete post", "DeletePost", new { postId = item.Id })

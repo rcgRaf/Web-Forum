@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ForumApp.Models.UserDTO>
+
+@{
+    ViewBag.Title = "Index";
+    var sessionUser = (ForumApp.Models.User)Session["User"];
+
+
+}
+
+<h2>Topics</h2>
+
+
+@Html.AntiForgeryToken()
+
+<table class="table">
+    <thead>
+        <tr>
+            <th name="UserName"> User Name </th>
+            <th name="UserName"> Email </th>
+            <th name="UserName"> Password Hash </th>
+
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                <div class="form-group">
+                    @Html.LabelForModel( item.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorForModel(item.Username, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessage(item.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </th>
+
+            <th>
+                <div class="form-group">
+                    @Html.LabelForModel(item.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorForModel(item.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessage(item.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </th>
+            <th>
+                <div class="form-group">
+                    @Html.LabelForModel(item.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorForModel(item.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessage(item.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </th>
+
+        </tr>
+    }
+
+
+</table>

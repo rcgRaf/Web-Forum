@@ -156,6 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Encryptor.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +177,10 @@
     <Compile Include="Migrations\201712301904566_postscountonuser.cs" />
     <Compile Include="Migrations\201712301904566_postscountonuser.Designer.cs">
       <DependentUpon>201712301904566_postscountonuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911131518467_User changes.cs" />
+    <Compile Include="Migrations\201911131518467_User changes.Designer.cs">
+      <DependentUpon>201911131518467_User changes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DTO\UserDTO.cs" />
@@ -237,6 +242,7 @@
     <Content Include="Views\Home\TopicDetails.cshtml" />
     <Content Include="Views\Home\ThreadDetails.cshtml" />
     <Content Include="Views\Home\CreateThread.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712301904566_postscountonuser.resx">
       <DependentUpon>201712301904566_postscountonuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911131518467_User changes.resx">
+      <DependentUpon>201911131518467_User changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

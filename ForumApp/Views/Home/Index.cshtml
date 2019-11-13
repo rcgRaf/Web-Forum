@@ -10,7 +10,7 @@
 
 <h2>Topics</h2>
 
-@if (sessionUser.Admin)
+@if (sessionUser.IsAdmin)
 {
     <p>
         @Html.ActionLink("Create New", "CreateTopic")

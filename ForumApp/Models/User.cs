@@ -8,13 +8,6 @@ namespace ForumApp.Models
 
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            Posts = new HashSet<Post>();
-            Threads = new HashSet<Thread>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -29,7 +22,7 @@ namespace ForumApp.Models
         [StringLength(20)]
         public string Email { get; set; }
 
-        public bool Admin { get; set; }
+        public bool IsAdmin { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -46,10 +39,10 @@ namespace ForumApp.Models
         public DateTime? RegisteredDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual List<Post> Posts { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Thread> Threads { get; set; }
+        public virtual List<Thread> Threads { get; set; }
 
         public int TotalPosts => Posts.Count;
     }

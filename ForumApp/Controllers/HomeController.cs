@@ -274,7 +274,9 @@ namespace ForumApp.Controllers
         {
             using (var set = new ForumContext())
             {
-                var thread = set.Threads.Include(t => t.User).FirstOrDefault(t => t.Id == threadId);
+                var thread = set.Threads
+                    .Include(t => t.User)
+                    .FirstOrDefault(t => t.Id == threadId);
 
 
 
