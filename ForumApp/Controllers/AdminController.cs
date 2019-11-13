@@ -81,7 +81,7 @@ namespace ForumApp.Controllers
                 set.Threads.Add(newThread);
                 await set.SaveChangesAsync();
 
-                logger.Info($"New Thread {newThread.Name} by user {Session["Username"] as string} ");
+                logger.Info($"New Thread: {newThread.Name} by user {Session["Username"] as string} ");
 
                 return RedirectToAction("Index");
             }
@@ -99,7 +99,7 @@ namespace ForumApp.Controllers
                 await set.SaveChangesAsync();
 
 
-                logger.Info($"Thread {thread.Name} was {(close? "closed": "opened")} by user {Session["Username"] as string}");
+                logger.Info($"Thread: {thread.Name} was {(close? "closed": "opened")} by user {Session["Username"] as string}");
 
                 return RedirectToAction("ThreadDetails", new { threadId });
             }
@@ -125,7 +125,7 @@ namespace ForumApp.Controllers
                 set.Topics.Add(newTopic);
                 await set.SaveChangesAsync();
 
-                logger.Info($"Topic {newTopic.Name} was created by user { Session["Username"] as string}");
+                logger.Info($"Topic: {newTopic.Name} was created by user { Session["Username"] as string}");
 
                 return RedirectToAction("Index");
             }
@@ -155,7 +155,7 @@ namespace ForumApp.Controllers
                 await set.SaveChangesAsync();
 
 
-                logger.Info($"A new post was created by user {Session["Username"] as string}");
+                logger.Info($"A new post was created by user: {Session["Username"] as string}");
                 return RedirectToAction("ThreadDetails", new { threadId });
             }
         }
@@ -303,7 +303,7 @@ namespace ForumApp.Controllers
                     set.Threads.Add(newItem);
                     await set.SaveChangesAsync();
 
-                    logger.Info($"User { Session["Username"] as string} added a new thread \"{newItem.Name}\" ");
+                    logger.Info($"User: { Session["Username"] as string} added a new thread \"{newItem.Name}\" ");
 
                 }
             }
@@ -330,12 +330,12 @@ namespace ForumApp.Controllers
                     if (upvote)
                     {
                         votedPost.Votes++;
-                        logger.Info($"User { Session["Username"] as string} upvoted created {votedPost.User.Username}s post");
+                        logger.Info($"User: { Session["Username"] as string} upvoted created {votedPost.User.Username}s post");
                     }
                     else
                     {
                         votedPost.Votes--;
-                        logger.Info($"User { Session["Username"] as string} downvoted created {votedPost.User.Username}s post");
+                        logger.Info($"User: { Session["Username"] as string} downvoted created {votedPost.User.Username}s post");
                     }
                     set.SentVotes.Add(new SentVote() { userId = dbuser.Id, postId = votedPost.Id });
 
