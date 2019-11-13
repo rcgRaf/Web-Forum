@@ -19,4 +19,4 @@ Project includes NLog extension for logging
 
 Logs in "project root"\Logs folder and c:/temp folder
 
-Found bug with null CreatedDate property for `Posts`
+As an admin go to /Admin/Index to see and edit list of users
