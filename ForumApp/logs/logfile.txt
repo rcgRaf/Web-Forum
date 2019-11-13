@@ -341,3 +341,19 @@
 2019-11-13 19:21:21.5176|INFO|dbloger|Thread Anyone played the new Cod? was closed by user superadmin
 2019-11-13 19:21:38.6640|INFO|dbloger|Thread Anyone played the new Cod? was closed by user superadmin
 2019-11-13 19:21:41.7544|INFO|dbloger|Thread Anyone played the new Cod? was opened by user superadmin
+2019-11-13 19:31:26.0545|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 19:31:34.5563|INFO|dbloger|User logged out:Ad
+2019-11-13 19:31:38.4198|INFO|dbloger|Failed attempt to login:asdasdasd
+2019-11-13 19:31:42.2666|INFO|dbloger|Failed attempt to login:asdasdasd
+2019-11-13 19:31:45.9917|INFO|dbloger|Failed attempt to login:asdasdasd
+2019-11-13 19:31:50.8910|INFO|dbloger|Failed attempt to login:asdasdasd
+2019-11-13 19:32:20.5980|INFO|dbloger|Registered a new user:user2@gmail.com
+2019-11-13 19:32:33.7935|INFO|dbloger|Failed attempt to login:tester1
+2019-11-13 19:32:39.8085|INFO|dbloger|Failed attempt to login:user@gmail.com
+2019-11-13 19:32:42.6425|INFO|dbloger|Failed attempt to login:tester@gmail.com
+2019-11-13 19:32:47.4391|INFO|dbloger|Failed attempt to login:user1@gmail.com
+2019-11-13 19:33:45.4744|INFO|dbloger|Registered a new user:test@gmail.com
+2019-11-13 19:33:48.3511|INFO|dbloger|Failed attempt to login:rrrzz
+2019-11-13 19:33:54.9608|INFO|dbloger|Successful login, username:test@gmail.com
+2019-11-13 19:34:27.7167|INFO|dbloger|User logged out:RFa
+2019-11-13 19:34:34.8062|INFO|dbloger|Successful login, username:admin@gmail.com
