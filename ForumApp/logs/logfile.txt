@@ -357,3 +357,86 @@
 2019-11-13 19:33:54.9608|INFO|dbloger|Successful login, username:test@gmail.com
 2019-11-13 19:34:27.7167|INFO|dbloger|User logged out:RFa
 2019-11-13 19:34:34.8062|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 19:46:20.6146|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 19:46:40.0445|INFO|dbloger|Topic Data Science was created by user superadmin
+2019-11-13 20:50:56.9484|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 20:53:07.4495|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 20:53:44.7664|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 20:58:40.7612|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 21:01:01.3548|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 21:04:12.6005|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 21:06:12.1509|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2019-11-13 21:06:17.0229|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 21:11:50.7646|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2019-11-13 21:11:55.3642|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 21:12:25.8054|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2019-11-13 21:12:30.5195|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 21:23:33.4126|INFO|dbloger|User tried direct acces to url, logged out user:Anonymus
+2019-11-13 21:25:15.4737|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:01:05.9545|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:03:11.9651|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:09:20.6799|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:10:01.1679|INFO|dbloger|User logged out:Admin
+2019-11-13 22:10:08.6397|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 22:10:15.9144|INFO|dbloger|Failed attempt to login:rubomaf@gmiail.com
+2019-11-13 22:10:25.1060|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:16:51.1790|INFO|dbloger|User logged out:Admin
+2019-11-13 22:17:03.1929|INFO|dbloger|Failed attempt to login:rubomaf@mail.ru
+2019-11-13 22:17:09.6672|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 22:17:17.9177|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:19:14.4953|INFO|dbloger|User logged out:Admin
+2019-11-13 22:19:16.5059|INFO|dbloger|Failed attempt to login:rcgRaf
+2019-11-13 22:19:19.0820|INFO|dbloger|Failed attempt to login:rcgRaf
+2019-11-13 22:19:25.4260|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 22:23:05.5675|INFO|dbloger|Failed attempt to login:rcgRaf
+2019-11-13 22:23:21.6528|INFO|dbloger|Failed attempt to login:rcgRaf
+2019-11-13 22:27:52.6598|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 22:28:00.7298|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 22:32:31.4424|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:33:47.8099|INFO|dbloger|User logged out:Admin
+2019-11-13 22:34:08.9601|INFO|dbloger|Successful login, username:rubomaf@gmail.com
+2019-11-13 22:36:01.1348|INFO|dbloger|Successful login, username:rubomaf@gmail.com
+2019-11-13 22:38:31.5570|INFO|dbloger|A new post was created by user rcgRaf
+2019-11-13 22:38:39.5548|INFO|dbloger|Thread Anyone played the new Cod? was opened by user rcgRaf
+2019-11-13 22:38:40.6343|INFO|dbloger|Thread Anyone played the new Cod? was closed by user rcgRaf
+2019-11-13 22:38:43.1287|INFO|dbloger|User rcgRaf upvoted created asdasds post
+2019-11-13 22:38:51.4463|INFO|dbloger|User rcgRaf upvoted created asdasds post
+2019-11-13 22:42:14.0994|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:53:44.8188|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:54:33.7343|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:55:02.3845|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:55:22.0534|INFO|dbloger|User logged out:Admin
+2019-11-13 22:55:24.2760|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:57:07.2775|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:57:13.9769|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:57:21.2262|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:57:56.9129|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:58:03.4732|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:58:28.8146|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 22:58:33.1580|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 23:03:49.1391|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 23:04:57.9955|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 23:10:31.8289|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 23:10:37.2330|INFO|dbloger|User logged out:Admin
+2019-11-13 23:10:44.2865|INFO|dbloger|Successful login, username:rubomaf@gmail.com
+2019-11-13 23:16:59.9548|INFO|dbloger|Successful login, username:rubomaf@gmail.com
+2019-11-13 23:20:57.3211|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 23:21:00.4893|INFO|dbloger|Successful login, username:rubomaf@gmail.com
+2019-11-13 23:27:53.5136|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 23:27:56.6148|INFO|dbloger|Failed attempt to login:rubomaf@gmail.com
+2019-11-13 23:28:00.3783|INFO|dbloger|Successful login, username:rubomaf@gmail.com
+2019-11-13 23:30:10.1364|INFO|dbloger|User logged out:Raf
+2019-11-13 23:30:14.6619|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 23:30:23.2571|INFO|dbloger|User logged out:Admin
+2019-11-13 23:30:24.1668|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:30:26.9060|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:30:31.2722|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:30:34.6815|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:31:21.8227|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:31:25.5102|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:35:25.2801|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:35:46.8290|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 23:36:22.3965|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:36:37.8493|INFO|dbloger|Successful login, username:admin@gmail.com
+2019-11-13 23:38:28.7126|INFO|dbloger|Failed attempt to login:superadmin
+2019-11-13 23:38:34.3911|INFO|dbloger|Successful login, username:admin@gmail.com

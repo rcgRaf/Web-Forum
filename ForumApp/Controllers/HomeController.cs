@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using customEncrypt;
 using System.Diagnostics;
 using System.Net.Mail;
+using System.Web.Security;
 
 namespace ForumApp.Controllers
 {
@@ -44,6 +45,7 @@ namespace ForumApp.Controllers
                 if (await UserLogin(email, pass, usr))
                 {
                     return RedirectToAction("Index", FormMethod.Get);
+
                 }
                 else
                 {
@@ -52,9 +54,8 @@ namespace ForumApp.Controllers
             }
         }
 
+      
 
-
-        [NoDirectAccess]
         public async Task<ActionResult> Index()
         {
             using (var set = new ForumContext())
@@ -180,7 +181,8 @@ namespace ForumApp.Controllers
                 {
                     Text = text,
                     Thread = set.Threads.FirstOrDefault(t => t.Id == threadId),
-                    User = user
+                    User = user,
+                    postedDate = DateTime.UtcNow
 
                 };
 
@@ -477,13 +479,11 @@ namespace ForumApp.Controllers
 
             if (usr != null)
             {
-
                 var bytepass = await CustomEncryptor.EncryptAsync(pass);
                 var test = System.Text.Encoding.UTF8.GetString(bytepass);
                 var usrpass = System.Text.Encoding.UTF8.GetString(usr.Password);
                 if (usrpass == test)
                 {
-
                     GlobalDiagnosticsContext.Set("Email", usr.Email);
 
                     Session["Username"] = usr.Username;

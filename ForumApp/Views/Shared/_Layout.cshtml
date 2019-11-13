@@ -7,6 +7,22 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+@{
+
+    int? Id = null;
+
+    if (!string.IsNullOrEmpty(Session["Username"] as string))
+    {
+        Id = ((ForumApp.Models.User)Session["User"]).Id;
+    }
+    else
+    {
+        Id = null;
+    }
+
+}
+@Html.AntiForgeryToken()
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -24,19 +40,23 @@
                     @if (!string.IsNullOrEmpty(Session["Username"] as string))
                     {
                         <span class="header"><font color="grey"> Logged in as @Session["Username"].ToString() </font></span>
-
+                        <br />
+                        <div class="nav navbar-nav navbar-right ">
+                            @if (Id != null)
+                            {
+                                @Html.ActionLink("Settings", "EditUser\\" + Id, "Admin");
+                            }
+                            <br />
+                            @Html.ActionLink("Logout", "Logout", "Home")
+                        </div>
                     }
+
                 </div>
             </div>
         </div>
     </div>
     <div class="container body-content">
-        @if (!string.IsNullOrEmpty(Session["Username"] as string))
-        {
-            <div class="nav navbar-nav navbar-right ">
-                @Html.ActionLink("Logout", "Logout")
-            </div>
-        }
+
         @RenderBody()
         <hr />
 

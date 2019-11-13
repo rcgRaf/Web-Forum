@@ -25,7 +25,9 @@
         </dt>
 
         <dd>
-            @Html.ActionLink(thread.User.Username, "UserDetails", new { userId = thread.User.Id })
+            @*@Html.ActionLink(thread.User.Username, "UserDetails", new { userId = thread.User.Id })*@
+            @Html.DisplayFor(item => thread.User.Username)
+
         </dd>
 
         <dt>
@@ -66,16 +68,21 @@
     <div class="col-md-6 ">
         @Html.DisplayFor(item => thread.Name)
     </div>
-    <div class="col-md-2">
-        @if (!thread.IsClosed)
-        {
-            @Html.ActionLink("Close Thread", "CloseOrOpenThread", new { close = true, threadId=thread.Id })
-        }
-        else
-        {
-            @Html.ActionLink("Open Thread", "CloseOrOpenThread", new { close = false, threadId= thread.Id })
-        }
-    </div>
+
+    @if (sessionUser.Id == thread.AuthorId)
+    {
+        <div class="col-md-2">
+            @if (!thread.IsClosed)
+            {
+                @Html.ActionLink("Close Thread", "CloseOrOpenThread", new { close = true, threadId = thread.Id })
+            }
+            else
+            {
+                @Html.ActionLink("Open Thread", "CloseOrOpenThread", new { close = false, threadId = thread.Id })
+            }
+        </div>
+    }
+
 
 
 </div>
@@ -97,7 +104,10 @@
             </dt>
 
             <dd>
-                @Html.ActionLink(item.User.Username, "UserDetails", new { userId = item.User.Id })
+                @*@Html.ActionLink(item.User.Username, "UserDetails", new { userId = item.User.Id })*@
+                @Html.DisplayFor(p => item.User.Username)
+
+
             </dd>
 
             <dt>

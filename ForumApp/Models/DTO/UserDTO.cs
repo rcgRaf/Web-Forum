@@ -37,7 +37,7 @@ namespace ForumApp.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        public bool Admin { get; set; }
+        public bool IsAdmin { get; set; }
 
 
     }
